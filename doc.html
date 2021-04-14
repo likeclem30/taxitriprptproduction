@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DOCUMENTATION</title>
+</head>
+
+<body style="padding:10px 30px">
+   <h1 style="text-align: center;">TRIP REPORTING SERVICE</h1>
+
+   <section style="margin-top:20px">
+      <h2 style="color: red;">Get Trips
+      </h2>
+
+      <div>
+         <h2> GET: http(s)://base-url/trip/getTrips
+            <br>
+            <small style="font-size: 70%;">header: Authorization Bearer token</small>
+         </h2>
+      </div>
+      <h3>Optional Query Parameters</h3>
+      <div>
+         <h5>driver_auth_id: (String) The auth Id of a driver</h5>
+         <h5>rider_auth_id: (String) the auth id of a rider</h5>
+         <h5>start_date: (String) date to start a query from, must be in this format, Y-M-D</h5>
+         <h5>end_date: (String) date to end query at must be in this format, Y-M-D</h5>
+         <h5>trip_status: (String) the status of the trip. must be either, completed, on_ride, cancel, waiting,
+            on_pickup</h5>
+         <h5>page: (String) the desired page to retrieve data</h5>
+         <h5>trip_class_complete: (String) if querying for class complete. Must be either yes or no</h5>
+         <h5>trip_class: (String) the class of ride. Must be either A, B, C, or D </h5>
+         <h5>item_per_page: (String) Items to be served in array as output result. must not be more than 200. Default:
+            50
+         </h5>
+      </div>
+      <p>
+      <h4> Example Request</h4>
+      http://base-url/trip/getTrips?driver_auth_id=9da8a33b-d280-4d1c-b3f0-2848c8ebea90&rider_auth_id=9da8a33b-d280-4d1c-b3f0-2848c8ebea90&start_date=2020-09-03&end_date=2020-09-03&trip_status=completed&page=1&trip_class_complete=yes&trip_class=A
+      </p>
+   </section>
+
+   <section style="margin-top:50px">
+      <h2 style="color: red;">Get Trip Counts</h2>
+      <div>
+         <h2> GET: http(s)://base-url/trip/getTripCounts</h2>
+      </div>
+      <h3>Optional Query Parameters</h3>
+      <div>
+         <h5>driver_auth_id: (String) The auth Id of a driver</h5>
+         <h5>rider_auth_id: (String) the auth id of a rider</h5>
+         <h5>start_date: (String) date to start a query from, must be in this format, Y-M-D</h5>
+         <h5>end_date: (String) date to end query at must be in this format, Y-M-D</h5>
+         <h5>trip_status: (String) the status of the trip. must be either, completed, on_ride, cancel, waiting,
+            on_pickup</h5>
+         <h5>page: (String) the desired page to retrieve data</h5>
+         <h5>trip_class_complete: (String) if querying for class complete. Must be either yes or no</h5>
+         <h5>trip_class: (String) the class of ride. Must be either A, B, C, or D </h5>
+      </div>
+      <p>
+      <h4> Example Request</h4>
+      http://base-url/trip/getTrips?driver_auth_id=9da8a33b-d280-4d1c-b3f0-2848c8ebea90&rider_auth_id=9da8a33b-d280-4d1c-b3f0-2848c8ebea90&start_date=2020-09-03&end_date=2020-09-03&trip_status=completed&trip_class_complete=yes&trip_class=A
+      </p>
+   </section>
+
+   <section style="margin-top:50px">
+      <h2 style="color: red;">Get Trip Fare</h2>
+      <div>
+         <h2> GET: http(s)://base-url/trip/getTotalFare</h2>
+      </div>
+      <p>Optional Query Parameters</p>
+      <div>
+         <h5>driver_auth_id: (String) The auth Id of a driver</h5>
+         <h5>rider_auth_id: (String) the auth id of a rider</h5>
+         <h5>start_date: (String) date to start a query from, must be in this format, Y-M-D</h5>
+         <h5>end_date: (String) date to end query at must be in this format, Y-M-D</h5>
+         <h5>trip_status: (String) the status of the trip. must be either, completed, on_ride, cancel, waiting,
+            on_pickup</h5>
+         <h5>page: (String) the desired page to retrieve data</h5>
+         <h5>trip_class_complete: (String) if querying for class complete. Must be either yes or no</h5>
+         <h5>trip_class: (String) the class of ride. Must be either A, B, C, or D </h5>
+      </div>
+   </section>
+
+   <section style="margin-top:50px">
+      <h2 style="color: red;">Get Trip Distant</h2>
+      <div>
+         <h2> GET: http(s)://base-url/trip/getTotalDistant</h2>
+      </div>
+      <h3>Optional Query Parameters</h3>
+      <div>
+         <h5>driver_auth_id: (String) The auth Id of a driver</h5>
+         <h5>rider_auth_id: (String) the auth id of a rider</h5>
+         <h5>start_date: (String) date to start a query from, must be in this format, Y-M-D</h5>
+         <h5>end_date: (String) date to end query at must be in this format, Y-M-D</h5>
+         <h5>trip_status: (String) the status of the trip. must be either, completed, on_ride, cancel, waiting,
+            on_pickup</h5>
+         <h5>page: (String) the desired page to retrieve data</h5>
+         <h5>trip_class_complete: (String) if querying for class complete. Must be either yes or no</h5>
+         <h5>trip_class: (String) the class of ride. Must be either A, B, C, or D </h5>
+      </div>
+   </section>
+
+   <section style="margin-top:50px">
+      <h2 style="color: red;">Get Driver Time and Distant Coverage</h2>
+      <div>
+         <h2> GET: http(s)://base-url/driver/getTotalTimeDistant</h2>
+      </div>
+      <h3>Optional Query Parameters</h3>
+      <div>
+         <h5>driver_auth_id: (String) The auth Id of a driver</h5>
+         <h5>start_date: (String) date to start a query from. If the request is for the current day,
+            make start_date=today else must be in this format, Y-M-D</h5>
+         <h5>end_date: (String) date to end query at must be in this format, Y-M-D</h5>
+      </div>
+   </section>
+</body>
+
+</html>
