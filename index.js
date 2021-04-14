@@ -2,6 +2,7 @@ const http = require('http')
 const https = require('https')
 const url = require('url')
 const API_ROUTE = require('./router')
+const tripModel = require('./models/driver')
 const SERVER_EXTENSION = require('./serverExtension')
 
 // const port = 6500;
@@ -33,7 +34,10 @@ const app = http.createServer((req, res) => {
 const port = process.env.PORT || 2000;
 // Listen port
 app.listen(port, (error) => {
-   if (error)
+   if (error) {
+      console.log(error)
+   } else {
       console.log("Server Running on " + port)
+   }
 })
 
