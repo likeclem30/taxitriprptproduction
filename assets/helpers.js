@@ -4,7 +4,11 @@ const helpers = {}
 
 
 helpers.zenoTripDBLocal = 'mongodb://localhost:27017/zeno_trip';
-helpers.zenoTripDBLive = "mongodb://lagridemdb:lagridemdb@172.30.218.218:27017/lagridemdb";
+helpers.zenoTripDBLive = "mongodb://lagridemdb:lagridemdb@172.30.227.48:27017/lagridemdb";
+//microservice project
+//helpers.zenoTripDBLocal = 'mongodb://localhost:27017/zeno_trip';
+//helpers.zenoTripDBLive = "mongodb://lagridemdb:lagridemdb@172.30.218.218:27017/lagridemdb";
+//end here
 // helpers.zenoTripDBLive = 'mongodb+srv://increase_21:QRudhu0Fsw0b166S@cluster0-mszft.mongodb.net/zeno_trip?retryWrites=true&w=majority';
 
 
