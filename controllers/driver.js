@@ -20,8 +20,6 @@ class driver {
 
       let queryBuilder = {}
 
-
-
       if (driverID) {
          if (driverID.length < 10) {
             return helpers.outputError(this.res, null, "Driver auth id is not valid")
@@ -62,6 +60,7 @@ class driver {
          //add to the query builder
          queryBuilder.createdAt.$lte = endDate
       }
+
       //if it's not admin
       if (parseInt(this.userData.admin) !== 1) {
          //if the request does not have a driver's 

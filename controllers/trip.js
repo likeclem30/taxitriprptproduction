@@ -1,5 +1,6 @@
 const helpers = require('../assets/helpers')
 const tripModel = require('../models/trip_request')
+const dbConnector = require('../models/dbconnector')
 
 class trip {
    constructor(req, res, body, userData) {
@@ -14,6 +15,7 @@ class trip {
       if (this.method !== 'get') {
          return helpers.outputError(this.res, 405)
       }
+      let tripID = helpers.getInputValueString(this.req.query, 'trip_id')
       let driverID = helpers.getInputValueString(this.req.query, 'driver_auth_id')
       let riderID = helpers.getInputValueString(this.req.query, 'rider_auth_id')
       let startDate = helpers.getInputValueString(this.req.query, 'start_date')
@@ -26,6 +28,13 @@ class trip {
 
       let queryBuilder = {}
 
+      if (tripID) {
+         if (tripID.length !== 24) {
+            return helpers.outputError(this.res, null, "A valid trip id is required")
+         }
+         //add to the query builder
+         queryBuilder._id = tripID
+      }
 
       if (driverID) {
          if (driverID.length < 10) {
@@ -163,10 +172,17 @@ class trip {
       let status = helpers.getInputValueString(this.req.query, 'trip_status')
       let rideClass = helpers.getInputValueString(this.req.query, 'trip_class')
       let rideClassComplete = helpers.getInputValueString(this.req.query, 'trip_class_complete')
+      let tripID = helpers.getInputValueString(this.req.query, 'trip_id')
 
       let queryBuilder = {}
 
-
+      if (tripID) {
+         if (tripID.length !== 24) {
+            return helpers.outputError(this.res, null, "A valid trip id is required")
+         }
+         //add to the query builder
+         queryBuilder._id = tripID
+      }
       if (driverID) {
          if (driverID.length < 10) {
             return helpers.outputError(this.res, null, "Driver auth id is not valid")
@@ -280,10 +296,17 @@ class trip {
       let status = helpers.getInputValueString(this.req.query, 'trip_status')
       let rideClass = helpers.getInputValueString(this.req.query, 'trip_class')
       let rideClassComplete = helpers.getInputValueString(this.req.query, 'trip_class_complete')
+      let tripID = helpers.getInputValueString(this.req.query, 'trip_id')
 
       let queryBuilder = {}
 
-
+      if (tripID) {
+         if (tripID.length !== 24) {
+            return helpers.outputError(this.res, null, "A valid trip id is required")
+         }
+         //add to the query builder
+         queryBuilder._id = tripID
+      }
       if (driverID) {
          if (driverID.length < 10) {
             return helpers.outputError(this.res, null, "Driver auth id is not valid")
@@ -403,9 +426,18 @@ class trip {
       let status = helpers.getInputValueString(this.req.query, 'trip_status')
       let rideClass = helpers.getInputValueString(this.req.query, 'trip_class')
       let rideClassComplete = helpers.getInputValueString(this.req.query, 'trip_class_complete')
+      let tripID = helpers.getInputValueString(this.req.query, 'trip_id')
 
       let queryBuilder = {}
 
+
+      if (tripID) {
+         if (tripID.length !== 24) {
+            return helpers.outputError(this.res, null, "A valid trip id is required")
+         }
+         //add to the query builder
+         queryBuilder._id = dbConnector.mongoose.Types.ObjectId(tripID)
+      }
 
       if (driverID) {
          if (driverID.length < 10) {

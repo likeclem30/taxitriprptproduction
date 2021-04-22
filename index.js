@@ -7,7 +7,7 @@ const SERVER_EXTENSION = require('./serverExtension')
 
 // const port = 6500;
 const app = http.createServer((req, res) => {
-   // Allow CORS
+   // Allow CORS 
    res.setHeader('Access-Control-Allow-Origin', '*')
    res.setHeader('Access-Control-Allow-Credentials', true)
    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -40,3 +40,4 @@ app.listen(port, (error) => {
       console.log("Server Running on " + port)
    }
 })
+
