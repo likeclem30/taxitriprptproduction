@@ -152,7 +152,8 @@ class trip {
       }
 
       let getData = await tripModel.TripRequests.find(queryBuilder).
-         skip(skipPage).select({ location: 0, rider_compass: 0, created: 0, __v: 0 }).limit(itemPage).catch(e => ({ error: e }))
+         skip(skipPage).select({ location: 0, created: 0, __v: 0 }).
+         sort("-createdAt").limit(itemPage).catch(e => ({ error: e }))
       //check if there's an error
       if (getData && getData.error) {
          return helpers.outputError(this.res, 500)
